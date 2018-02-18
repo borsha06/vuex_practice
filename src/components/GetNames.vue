@@ -3,7 +3,7 @@
     <input class="form-control"
            :value="newName"
            @change="getName"
-           placeholder="I need to...">
+           placeholder="Add ...">
     <button class="btn btn-primary" @click="addName">Add Name</button>
   </div>
 </template>
