@@ -5,42 +5,50 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    names: [],
-    newNames: '',
-    sections: [],
-    newSecions: ''
+    information: [
+      {
+        name: 'Tasfia',
+        section: 1,
+        roll: 1
+      },
+      {
+        name: 'Sharmin',
+        section: 2,
+        roll: 2
+
+      },
+      {
+        name: 'Borsha',
+        section: 1,
+        roll:1
+      }
+
+    ],
   },
+
   mutations: {
-    GET_NAME(state, name){
-      state.newNames =  name
-    },
-    ADD_NAME(state){
-      state.names.push({
-        body: state.newNames,
-
-      })
-    },
-
-    CLEAR_NAME(state){
-      state.newNames = ''
+    SHOW_LIST(state) {
+      state.information.forEach(info => {
+        return info.section;
+      });
     }
+
   },
+
   actions: {
-    getName({commit}, name){
-      commit('GET_NAME', name)
-    },
-    addName({commit}){
-      commit('ADD_NAME')
-    },
-    clearName({commit}){
-      commit('CLEAR_NAME')
+    showList({commit}) {
+      commit('SHOW_LIST')
     }
 
   },
   getters: {
-    newNames: state => state.newNames,
-    names: state => state.names.filter((name) => {return name}),
-    
+
+    information(state) {
+      return state.information.filter(info => {
+          return info.section;
+        }
+      )},
+
 
   }
 

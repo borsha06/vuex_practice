@@ -1,23 +1,32 @@
 <template>
-  <div id="current-todos" class="container">
+  <div id="" class="container">
 
     <ul >
 
-      <li class="list-group-item" v-for="name in names">
-        {{name.body}}
+      <li class="list-group-item" v-for="info in showList(information)" >
+        Roll: {{info.roll}}-Name: {{info.name}}-Section: {{info.section}}
 
       </li>
     </ul>
+
   </div>
 </template>
 <script>
   export default{
     methods: {
+        showList: function (information) {
+          return information.filter(function (info) {
+               return info.section;
 
+
+          })
+
+
+        }
     },
     computed: {
-      names(){
-        return this.$store.getters.names
+      information(){
+        return this.$store.getters.information;
       }
     }
   }
