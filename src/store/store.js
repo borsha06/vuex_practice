@@ -8,19 +8,25 @@ export default new Vuex.Store({
     information: [
       {
         name: 'Tasfia',
-        section: 1,
+        section: true,
         roll: 1
       },
       {
         name: 'Sharmin',
-        section: 2,
+        section: false,
         roll: 2
 
       },
       {
         name: 'Borsha',
-        section: 1,
+        section: false,
         roll:1
+      },
+      {
+        name: 'Bo',
+        section: true,
+        roll:3
+
       }
 
     ],
@@ -45,7 +51,7 @@ export default new Vuex.Store({
 
     information(state) {
       return state.information.filter(info => {
-          return info.section;
+          return info;
         }
       )},
 
