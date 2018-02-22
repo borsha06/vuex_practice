@@ -32,37 +32,24 @@ export default new Vuex.Store({
         name:'Bornee',
         section:false,
         roll:3,
+      },
+      {
+        name:'Y',
+        section:true,
+        roll:2
       }
 
     ],
   },
 
-  mutations: {
-    SHOW_LIST(state) {
-        return state.information.filter(info => {
-          if(info.section===true)
-            return info.section;
-          return info.section;
-        })
-    }
 
-  },
-
-  actions: {
-    showList({commit}) {
-      commit('SHOW_LIST')
-    }
-
-  },
   getters: {
 
     information(state) {
       return state.information.filter(info => {
-          return info;
+            return info;
         }
       )},
-
-
   }
 
 })
