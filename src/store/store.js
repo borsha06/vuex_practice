@@ -31,7 +31,7 @@ export default new Vuex.Store({
       {
         name:'Bornee',
         section:false,
-        roll:2,
+        roll:3,
       }
 
     ],
