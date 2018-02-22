@@ -27,6 +27,11 @@ export default new Vuex.Store({
         section: true,
         roll:3
 
+      },
+      {
+        name:'Bornee',
+        section:false,
+        roll:2,
       }
 
     ],
@@ -34,9 +39,11 @@ export default new Vuex.Store({
 
   mutations: {
     SHOW_LIST(state) {
-      state.information.forEach(info => {
-        return info.section;
-      });
+        return state.information.filter(info => {
+          if(info.section===true)
+            return info.section;
+          return info.section;
+        })
     }
 
   },

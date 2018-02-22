@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="container">
+  <div  >
 
     <div v-for="info in showList_true(information)">
 
@@ -9,38 +9,41 @@
       </p>
 
     </div>
+    <div v-for="info in information">
 
 
-    <div v-for="info in showList_false(information)">
+    <p v-if="info.section==false" >
+      Roll: {{info.roll}}  Name: {{info.name}}  Section: {{info.section}}
+    </p>
 
-      <p >
-        Roll: {{info.roll}}-Name: {{info.name}}-Section: {{info.section}}
-      </p>
-
-    </div>
-
+  </div>
   </div>
 </template>
 <script>
+/* import { mapActions } from 'vuex'; */
   export default{
+
+
     methods: {
-        showList_true: function (information) {
-          return information.filter(function (info) {
-                if(info.section===true)
-                    return info.section;
-          })
-
-
-        },
-      showList_false: function (information) {
+      showList_true: function (information) {
         return information.filter(function (info) {
-          if(info.section===false)
-              return info.section;
+          if (info.section === true)
+            return info.section;
         })
 
 
-      }
+      },
     },
+
+
+  /*methods:{
+    ...mapActions([
+                 'showList',
+                  'false_list'
+               ]),
+
+  },
+  */
     computed: {
       information(){
         return this.$store.getters.information;
