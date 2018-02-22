@@ -45,9 +45,14 @@ export default new Vuex.Store({
 
   getters: {
 
-    information(state) {
+    information1(state) {
       return state.information.filter(info => {
-            return info;
+            return info.section;
+        }
+    )},
+    information2(state) {
+      return state.information.filter(info => {
+          return !info.section;
         }
       )},
   }
